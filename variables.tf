@@ -16,7 +16,7 @@ variable "gitlab_public_ssh_key" {
 
 variable "gitlab_app_ami" {
   description = "AMI id for GitLab EE version"
-  default     = "ami-02c2be8bfcc172b1c"
+  default     = "ami-08264c998791b9428"
   type        = string
 }
 

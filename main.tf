@@ -19,6 +19,6 @@ resource "aws_instance" "gitlab_app" {
     Environment = var.environment
     Application = "gitlab"
     Role        = "app"
-    Name        = "gitlab-app-${index(var.gitlab_private_subnets, each.key)}"
+    Name        = "gitlab-app-${var.environment}-${index(var.gitlab_private_subnets, each.key)}"
   }
 }
