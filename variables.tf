@@ -8,9 +8,8 @@ variable "gitlab_vpc_id" {
   type        = string
 }
 
-variable "gitlab_public_ssh_key" {
-  description = "Public part of ssh key pair for access to instances"
-  default     = "ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAIEAqk+k1HXWuUUJw2MFipf35QRUpyOCBCIp/d2/F1drQbgrNwn9ZMgd3tjLLTDRPzD9+kNOkzbxpgXyfG0ukyrG9ovYj3e+Oc/1C36swFn9Zr5fxCC41yznr5axo0O/r0vZ9vH5BfIPGc5XNgXygnHiY7nFdWvoZcRQridjkRZqMuU= igortiunov@gmail.com"
+variable "gitlab_keypair" {
+  description = "Ssh key pair for access to instances"
   type        = string
 }
 

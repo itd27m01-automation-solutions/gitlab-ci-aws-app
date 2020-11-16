@@ -1,13 +1,9 @@
-resource "aws_key_pair" "gitlab_keypair" {
-  public_key = var.gitlab_public_ssh_key
-}
-
 resource "aws_instance" "gitlab_app" {
   for_each = toset(var.gitlab_private_subnets)
 
   ami           = var.gitlab_app_ami
   instance_type = var.gitlab_app_flavor
-  key_name      = aws_key_pair.gitlab_keypair.key_name
+  key_name      = var.gitlab_keypair
 
   subnet_id              = each.key
   vpc_security_group_ids = var.gitlab_lb_sg_ids
