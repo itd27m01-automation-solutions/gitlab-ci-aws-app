@@ -69,3 +69,15 @@ resource "aws_route53_record" "gitlab" {
     evaluate_target_health = false
   }
 }
+
+resource "aws_ssm_parameter" "gitlab_access_url" {
+  name        = "/gitlab/${var.environment}/url"
+  description = "Gitlab UI url"
+  type        = "String"
+  value       = aws_route53_record.gitlab.fqdn
+
+  tags = {
+    Terraform   = "true"
+    Environment = var.environment
+  }
+}
