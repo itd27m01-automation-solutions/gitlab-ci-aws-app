@@ -49,3 +49,8 @@ variable "gitlab_acm_certificate_arn" {
   description = "Validate ACN certificate"
   type        = string
 }
+
+variable "gitlab_token" {
+  description = "Gitlab shared secret for components"
+  type        = string
+}

@@ -18,3 +18,15 @@ resource "aws_instance" "gitlab_app" {
     Name        = "gitlab-app-${var.environment}-${index(var.gitlab_private_subnets, each.key)}"
   }
 }
+
+resource "aws_ssm_parameter" "gitlab_token" {
+  name        = "/gitlab/${var.environment}/token"
+  description = "Gitlab shared secret for components"
+  type        = "SecureString"
+  value       = var.gitlab_token
+
+  tags = {
+    Terraform   = "true"
+    Environment = var.environment
+  }
+}
