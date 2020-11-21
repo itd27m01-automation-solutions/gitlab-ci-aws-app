@@ -55,8 +55,8 @@ resource "aws_route53_record" "gitlab_internal" {
   type    = "A"
 
   alias {
-    name                   = module.gitlab_elb.this_elb_dns_name
-    zone_id                = module.gitlab_elb.this_elb_zone_id
+    name                   = module.gitlab_elb_internal.this_elb_dns_name
+    zone_id                = module.gitlab_elb_internal.this_elb_zone_id
 
     evaluate_target_health = false
   }
